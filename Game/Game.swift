@@ -7,16 +7,16 @@
 
 import Foundation
 
-class Game {
+public class Game {
     //    Basic function to start a game.
     func startGame() {
         
     }
     
     //    To create 2 team (one by player, max 2) with 3 character choose.
-    var player1 = Player(playerName: "\(playerOne)", teamPlayer: ["Brendan"])
-    var player2 = Player(playerName: "\(playerTwo)", teamPlayer: ["Gustavo"])
-    var players = [player1, player2]
+    
+    var firstPlayer = Player(playerName: "\(playerOneUsername ?? "Player 1")", teamPlayer: ["Brendan"])
+    var secondPlayer = Player(playerName: "\(playerTwoUsername ?? "Player 2")", teamPlayer: ["Gustavo"])
     //  Choose 3 character among 3 character class available.
     
     
@@ -39,7 +39,3 @@ class Game {
 }
 
 
-
-func wait() {
-    
-}

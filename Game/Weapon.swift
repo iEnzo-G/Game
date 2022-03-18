@@ -37,6 +37,9 @@ class Weapon {
 //    }
 //}
 
+
+                                                                            /* Class weapon with array */
+
 //class Weapon: Character {
 //    var weaponCaract: [Int] = []
 //    var damage: Int

@@ -8,18 +8,18 @@
 import Foundation
 
 
-// DISCORD KELTOUM: " class Player  { var name : String, var characters: [character] } "
+// DISCORD KELTOUM: " class Player  { var name : String, var characters: [character] }
 //                      player1 = Player(name: Ken, personnages: [personnage])
 //                      player2 = Player(name: Stue, personnages: [personnage])
-//                      var players = [player1, player2]
+//                      var players = [player1, player2]                                    "
 
-class Player {
+public class Player {
     
     //   To better indentify the player's turn
     var playerName: String
     //    Using array about character to make easier to identify who die or still alive.
     //    Help program to know where we are in the game (if it's finish, remaining character, etc..)
-    var teamPlayer: [String] = []
+    var teamPlayer: [String]
     
     init(playerName: String, teamPlayer: [String]){
         self.playerName = playerName
@@ -27,11 +27,4 @@ class Player {
     }
 }
 
-
-
-
-
-//var premier = ["Kadan", "Nineveh", "Béatrice"]
-//var deuxieme = ["Dan", "Stuart", "Ken"]
-//var exemple: [Array] = [premier, deuxieme]
 
