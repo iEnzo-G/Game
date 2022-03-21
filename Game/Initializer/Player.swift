@@ -7,19 +7,13 @@
 
 import Foundation
 
-
-// DISCORD KELTOUM: " class Player  { var name : String, var characters: [character] }
-//                      player1 = Player(name: Ken, personnages: [personnage])
-//                      player2 = Player(name: Stue, personnages: [personnage])
-//                      var players = [player1, player2]                                    "
-
 public class Player {
     
     //   To better indentify the player's turn
     var playerName: String
     //    Using array about character to make easier to identify who die or still alive.
     //    Help program to know where we are in the game (if it's finish, remaining character, etc..)
-    var teamPlayer: [String]
+    var teamPlayer: [String] = []
     
     init(playerName: String, teamPlayer: [String]){
         self.playerName = playerName
@@ -28,3 +22,18 @@ public class Player {
 }
 
 
+public class Team: Player {
+    var teamOne: [String] = []
+    var teamTwo: [String] = []
+    
+    func createPlayerOneTeam() {
+        while teamOne.count != 3 {
+            func newCharacter() -> String {
+            guard let characterName = readLine() else { return newCharacter()}
+            return characterName
+            }
+            teamOne.append(newCharacter())
+        }
+        
+    }
+}

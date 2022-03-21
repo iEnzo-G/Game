@@ -67,14 +67,30 @@
 		546D255227DF99C10012DB46 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				54455CDF27E0D7B1002DED05 /* Game.swift */,
-				54455CDD27E0D797002DED05 /* Player.swift */,
-				54455CDB27E0D758002DED05 /* Character.swift */,
-				54455CE127E0FB41002DED05 /* Classe.swift */,
-				54EC0CA927E36FBC009C26A4 /* Weapon.swift */,
+				54940C5C27E8A5E100C89B8C /* Initializer */,
+				54940C5B27E8A5C900C89B8C /* Character */,
 				546D255327DF99C10012DB46 /* main.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		54940C5B27E8A5C900C89B8C /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				54455CDB27E0D758002DED05 /* Character.swift */,
+				54455CE127E0FB41002DED05 /* Classe.swift */,
+				54EC0CA927E36FBC009C26A4 /* Weapon.swift */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		54940C5C27E8A5E100C89B8C /* Initializer */ = {
+			isa = PBXGroup;
+			children = (
+				54455CDF27E0D7B1002DED05 /* Game.swift */,
+				54455CDD27E0D797002DED05 /* Player.swift */,
+			);
+			path = Initializer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

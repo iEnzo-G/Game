@@ -23,19 +23,27 @@ import Foundation
 //}
 
 
-print("Enter your username Player 1")
+
 func createPlayerOne() -> String? {
-guard let playerOne = readLine()  else { return nil }
-print("Welcome \(playerOne)\n")
+guard let playerOne = readLine()  else { return createPlayerOne() }
+print("Welcome on the battlefield, \(playerOne).\n")
     return playerOne
 }
+print("Enter your username Player 1")
 var playerOneUsername = createPlayerOne()
+/*
+ 
+ 
+ Choisi ses 3 personnages
+ 
+ 
+ */
 
-print("Enter your username Player 2")
 func createPlayerTwo() -> String? {
 guard let playerTwo = readLine()  else { return nil }
-print("Welcome \(playerTwo)\n")
+print("Welcome on the battlefield, \(playerTwo).\n")
     return playerTwo
 }
+print("Enter your username Player 2")
 var playerTwoUsername = createPlayerTwo()
 

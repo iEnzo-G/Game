@@ -29,17 +29,12 @@ import Foundation
         case .sword: Weapon.init(damage: 25, healing: 0)
         case .staff: Weapon.init(damage: 10, healing: 25)
         }
-        
     }
-    func characterAction() {
+   public func characterAction() {
 
     }
 }
 enum TypeAction { case canAttack; case canHeal }
 enum TypeWeapon { case dagger; case sword; case staff }
 
-
-/* A supprimer */
-func wait() {
-    
-}
+// Delete classe "Classe" and do a switch init ?
