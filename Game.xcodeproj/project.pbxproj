@@ -10,7 +10,7 @@
 		54455CDC27E0D758002DED05 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54455CDB27E0D758002DED05 /* Character.swift */; };
 		54455CDE27E0D797002DED05 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54455CDD27E0D797002DED05 /* Player.swift */; };
 		54455CE027E0D7B1002DED05 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54455CDF27E0D7B1002DED05 /* Game.swift */; };
-		54455CE227E0FB41002DED05 /* Classe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54455CE127E0FB41002DED05 /* Classe.swift */; };
+		54455CE227E0FB41002DED05 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54455CE127E0FB41002DED05 /* Class.swift */; };
 		546D255427DF99C10012DB46 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546D255327DF99C10012DB46 /* main.swift */; };
 		54EC0CAA27E36FBC009C26A4 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC0CA927E36FBC009C26A4 /* Weapon.swift */; };
 /* End PBXBuildFile section */
@@ -31,7 +31,7 @@
 		54455CDB27E0D758002DED05 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		54455CDD27E0D797002DED05 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		54455CDF27E0D7B1002DED05 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		54455CE127E0FB41002DED05 /* Classe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classe.swift; sourceTree = "<group>"; };
+		54455CE127E0FB41002DED05 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		546D255027DF99C10012DB46 /* Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game; sourceTree = BUILT_PRODUCTS_DIR; };
 		546D255327DF99C10012DB46 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		54EC0CA927E36FBC009C26A4 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				54455CDB27E0D758002DED05 /* Character.swift */,
-				54455CE127E0FB41002DED05 /* Classe.swift */,
+				54455CE127E0FB41002DED05 /* Class.swift */,
 				54EC0CA927E36FBC009C26A4 /* Weapon.swift */,
 			);
 			path = Character;
@@ -154,7 +154,7 @@
 				546D255427DF99C10012DB46 /* main.swift in Sources */,
 				54455CDE27E0D797002DED05 /* Player.swift in Sources */,
 				54455CDC27E0D758002DED05 /* Character.swift in Sources */,
-				54455CE227E0FB41002DED05 /* Classe.swift in Sources */,
+				54455CE227E0FB41002DED05 /* Class.swift in Sources */,
 				54455CE027E0D7B1002DED05 /* Game.swift in Sources */,
 				54EC0CAA27E36FBC009C26A4 /* Weapon.swift in Sources */,
 			);

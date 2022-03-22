@@ -7,34 +7,39 @@
 
 import Foundation
 
- class Character {
-    var characterName: String
+class Character {
+    
+    //     MARK: - Properties
+    let name: String
     var healthPoints: Int
-    var action: TypeAction
-    let wearWeapon: TypeWeapon
-
-    /*      Main init with name, their HP, action possible and their weapon
-     who define "HP transformer",if character heal(+) or attack(-)       */
-    init(characterName: String, healthPoints: Int, action: TypeAction, wearWeapon: TypeWeapon){
-        self.characterName = characterName
+    var weapon: Weapon
+    
+    //     MARK: - Initializer
+    ///     Main init with name, their HP, action possible and their weapon
+    ///     who define "HP transformer",if character heal(+) or attack(-)
+    init(name: String, healthPoints: Int, weaponType: WeaponType){
+        self.name = name
         self.healthPoints = healthPoints
-        self.action = action
-        switch action {
-        case .canAttack: wait()
-        case .canHeal: wait()
-        }
-        self.wearWeapon = wearWeapon
-        switch wearWeapon {
-        case .dagger: Weapon.init(damage: 35, healing: 0)
-        case .sword: Weapon.init(damage: 25, healing: 0)
-        case .staff: Weapon.init(damage: 10, healing: 25)
+        switch weaponType {
+        case .dagger:
+            weapon = Weapon(damage: 35, healing: 0)
+        case .sword:
+            weapon = Weapon(damage: 25, healing: 0)
+        case .staff:
+            weapon = Weapon(damage: 10, healing: 25)
         }
     }
-   public func characterAction() {
-
+    
+    //     MARK: - Action
+    class func attack(target: Character) {
+//        target.healthPoints -= Character().weapon.damage
+    }
+    class func heal(target: Character) {
+//        target.healthPoints += Character().weapon.damage
     }
 }
-enum TypeAction { case canAttack; case canHeal }
-enum TypeWeapon { case dagger; case sword; case staff }
+enum WeaponType {
+    case dagger, sword, staff
+}
 
-// Delete classe "Classe" and do a switch init ?
+
