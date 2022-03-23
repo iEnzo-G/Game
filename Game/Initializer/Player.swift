@@ -44,15 +44,16 @@ public class Player: Game {
                         3. Warrior
                     """)
                 var characterClass: Int = 0
-                if characterClass == 0 {
-                    while characterClass != 1 || (2 != 0) || (3 != 0) {
                     if let input = readLine() {
                         if let typed = Int(input){
                             characterClass = typed
-                       }
+                        }
                     }
+                if characterClass <= 3, characterClass == 0 {
+                        print("Class doesn't exist, retry :")
                     }
-                }
+                
+                
                 
                 //MARK: - Mage
                 if characterClass == 1 {

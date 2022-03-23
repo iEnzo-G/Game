@@ -31,15 +31,16 @@ class Character {
     }
     
     //     MARK: - Action
-    class func attack(target: Character) {
-//        target.healthPoints -= Character().weapon.damage
+    class func attack(who: Character, target: Character) {
+        target.healthPoints -= who.weapon.damage
     }
-    class func heal(target: Character) {
-//        target.healthPoints += Character().weapon.damage
+    class func heal(who: Character,target: Character) {
+        target.healthPoints += who.weapon.healing
     }
 }
 enum WeaponType {
     case dagger, sword, staff
 }
+
 
 

@@ -16,7 +16,7 @@ public class Game {
     ///  Launch the game
     public func startGame(){
         Player.createPlayers()
-        dump(Game.players)
+//        dump(Game.players)
         startBattle()
         showStatistics()
     }
@@ -24,6 +24,7 @@ public class Game {
     //MARK: - Start Battle
     /// Function to initialize the battle
     public func startBattle(){
+        whoStart()
         
     }
     
@@ -35,14 +36,6 @@ public class Game {
     }
     
 }
-
-// Initialisation de l'équipe de \(Joueur 1):
-// Chaque personnage : Choisi la classe avec readIntegrer() : 1,2 ou 3 (boucle while tant que nil)
-// 1: Mage
-// 2: Assassin
-// 3: Warrior
-// Comment voulez vous nommez votre personnage readLine() : "String" (boucle while tant que "")
-
 
 
 
