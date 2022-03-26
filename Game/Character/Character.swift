@@ -12,7 +12,7 @@ class Character {
     //     MARK: - Properties
     let name: String
     var healthPoints: Int
-    var weapon: Weapon
+    let weapon: Weapon
     
     //     MARK: - Initializer
     ///     Main init with name, their HP, action possible and their weapon

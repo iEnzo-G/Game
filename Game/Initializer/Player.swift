@@ -10,7 +10,7 @@ import Foundation
 public class Player: Game {
     
     ///   To better indentify the player's turn
-    var name: String
+    let name: String
     ///    Using array about character to make easier to identify who die or still alive.
     ///    Help program to know where we are in the game (if it's finish, remaining character, etc..)
     var team: [Character] = []
@@ -26,15 +26,18 @@ public class Player: Game {
         var players = 0
         while players != 2 { // Set the numbers of players for the party
             print("Player \(players  + 1), choose your username:")
+            var nameUsed: [String] = []
             var name: String = ""
             while name == ""{
                 if let input = readLine() {
                     name = input
                 }
             }
+
             let newPlayer = Player(name: name, team: [])
             Game.players.append(newPlayer)
             
+            // MARK: - Team creation
             print("Create your team :")
             while newPlayer.team.count < 3 {
                 print("""
@@ -44,58 +47,53 @@ public class Player: Game {
                         3. Warrior
                     """)
                 var characterClass: Int = 0
-                    if let input = readLine() {
-                        if let typed = Int(input){
-                            characterClass = typed
-                        }
+                if let input = readLine() {
+                    if let typed = Int(input){
+                        characterClass = typed
                     }
-                if characterClass <= 3, characterClass == 0 {
-                        print("Class doesn't exist, retry :")
-                    }
+                }
                 
-                
-                
-                //MARK: - Mage
-                if characterClass == 1 {
+                switch characterClass {
+                    //MARK: - Mage
+                case 1:
                     print("Please, named your Mage:")
-                    var nameM: String = ""
-                    while nameM == ""{
+                    var name: String = ""
+                    while name == "" {
                         if let input = readLine() {
-                            nameM = input
+                            name = input
                         }
-                        let first = Mage(name: nameM)
-                        newPlayer.team.append(first)
+                        let new = Mage(name: name)
+                        newPlayer.team.append(new)
                     }
-                }
-                
-                // MARK: - Assasin
-                if characterClass == 2 {
+                    // MARK: - Assasin
+                case 2:
                     print("Please, named your Assasin:")
-                    var nameA: String = ""
-                    while nameA == ""{
+                    var name: String = ""
+                    while name == "" {
                         if let input = readLine() {
-                            nameA = input
+                            name = input
                         }
-                        let second = Assasin(name: nameA)
-                        newPlayer.team.append(second)
+                        let new = Assasin(name: name)
+                        newPlayer.team.append(new)
                     }
+                    // MARK: - Warrior
+                case 3:
+                    print("Please, named your Warrior:")
+                    var name: String = ""
+                    while name == "" && !nameUsed.contains(name){
+                        if let input = readLine() {
+                            name = input
+                        }
+                        let new = Warrior(name: name)
+                        newPlayer.team.append(new)
+                    }
+                default:
+                    print("Class doesn't exist, retry :")
                 }
                 
-                // MARK: - Warrior
-                if characterClass == 3 {
-                    print("Please, named your Warrior:")
-                    var nameW: String = ""
-                    while nameW == ""{
-                        if let input = readLine() {
-                            nameW = input
-                        }
-                        let third = Warrior(name: nameW)
-                        newPlayer.team.append(third)
-                    }
-                }
             }
             players += 1
         }
-        
     }
 }
+
