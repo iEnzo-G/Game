@@ -14,4 +14,8 @@ P3_OPENCLASSROOMS
 23_03_2022 :
     - Création des joueurs avec leur team composée de 3 personnages chacun définissable par une classe (Mage, Assassin ou Guerrier).
     - readLine() bloqué sur le Int 1,2 et 3, renvoie sinon sur la demande du choix.
-    /* OBJECTIF DE LA SESSION DE MENTORIAT POUR LE 28_03_2022 */ 
+    /* OBJECTIF DE LA SESSION DE MENTORAT POUR LE 28_03_2022 */ 
+
+29_03_2022 : 
+    - Version update selon session de mentorat. 
+    - Finir la partie username UNIQUE avant prochaine session de mentorat
