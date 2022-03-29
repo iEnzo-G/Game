@@ -10,12 +10,14 @@ import Foundation
 class Game {
     
     static let numberOfPlayers = 2
+    static var playersNames: [String] = []
     var players: [Player] = []
     //MARK: - Start Game
     ///  Launch the game
     func startGame(){
-//        dump(Game.players)
         createPlayers()
+//        dump(Player.characterNames)
+//        dump(Game.playersNames)
         startBattle()
         showStatistics()
     }
@@ -23,14 +25,19 @@ class Game {
     // MARK: - Create news players
     func createPlayers() {
         for i in 0 ..< Game.numberOfPlayers {
-            print("Player, choose your username !")
+            print("Player \(i + 1), choose your username !")
             var name = ""
             while name == "" {
                 if let input = readLine() {
                     name = input
                 }
+                if Game.playersNames.contains(name) {             // Safe condition to have unique name
+                    print("This username is already taken, choose another please !")
+                    name = ""
+                }
             }
-            print("Player \(i + 1), choose your characters !")
+            Game.playersNames.append(name)
+            print("\(name), choose your characters !")
             players.append(Player(name: name))
         }
     }
@@ -38,7 +45,7 @@ class Game {
     //MARK: - Start Battle
     /// Function to initialize the battle
     func startBattle(){
-        whoStart()
+        Battle().whoStart()
         
     }
     
@@ -48,11 +55,7 @@ class Game {
     func showStatistics() {
         
     }
-    
-    func whoStart() {
-        let first = Int.random(in: 0...1)
-        print("\(players[first].name) engage the battle.")
-    }
+
     
 }
 

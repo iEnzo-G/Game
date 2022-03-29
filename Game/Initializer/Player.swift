@@ -49,20 +49,25 @@ class Player {
         }
     }
     
+    //MARK: - Character's name
+    /// This function allows to give a name to the choosen character with a safe condition to give an unique name
     private func getUniqueName() -> String {
         var name: String = ""
         while name == "" {
             if let input = readLine() {
                 name = input
             }
-            if Player.characterNames.contains(name) {
-                
+            if Player.characterNames.contains(name) {            // Safe condition to have unique name
+                print("Characters can't have the same name, choose another please !")
+                name = ""
             }
         }
-        
+        Player.characterNames.append(name)
         return name
     }
     
+    //MARK: - Class Selector
+    /// This function is to choose the class you want create before give him unique name
     private func getClassType() -> Int {
         var characterClass: Int = 0
         while characterClass != 1, characterClass != 2, characterClass != 3 {
