@@ -16,8 +16,6 @@ class Game {
     ///  Launch the game
     func startGame(){
         createPlayers()
-//        dump(Player.characterNames)
-//        dump(Game.playersNames)
         startBattle()
         showStatistics()
     }
@@ -46,7 +44,7 @@ class Game {
     /// Function to initialize the battle
     func startBattle(){
         Battle().whoStart()
-        
+        Battle().gameTurn()
     }
     
 
