@@ -19,3 +19,7 @@ P3_OPENCLASSROOMS
 29_03_2022 : 
     - Version update selon session de mentorat. 
     - Finir la partie username UNIQUE avant prochaine session de mentorat
+
+01_03_2022 :
+    - Username unique: OK
+    - Partie combat en cours, petit probleme de duplication de fonctionnement, trouver de quoi la factoriser et "break" cette loop infernal !

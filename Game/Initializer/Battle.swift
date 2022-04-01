@@ -39,7 +39,7 @@ class Battle {
         return character - 1
     }
     
-    func characterAction() -> Int{
+    private  func characterAction() -> Int{
         let character = characterChoice()
         print("""
             What should \(game.players[playerTurn()].team[character].name) do ?
@@ -57,7 +57,7 @@ class Battle {
         return actionType
     }
     
-    func targetCharacter() -> Int { // FONCTION A FACTORISER + VOIR POUR AVOIR UNE CONDITION POUR LA PARTIE "HEAL" POUR BLOQUER CEUX QUI NE PEUVENT PAS SOIGNER
+    private  func targetCharacter() -> Int { // FONCTION A FACTORISER + VOIR POUR AVOIR UNE CONDITION POUR LA PARTIE "HEAL" POUR BLOQUER CEUX QUI NE PEUVENT PAS SOIGNER
         if characterAction() == 1 {
             let targetPlayer = game.players[1]
             print("""
@@ -102,20 +102,20 @@ class Battle {
         return first
     }
     
-    func displayTurn() {
-        let player = playerTurn()
-        let action = characterAction()
-        let characterChoice = characterChoice()
-        let target = targetCharacter()
+    private func displayTurn() {
+//        let player = playerTurn()
+//        let action = characterAction()
+//        let characterChoice = characterChoice()
+//        let target = targetCharacter()
         if action == 1 {
             Character.attack(who: game.players[player].team[characterChoice], target: game.players[1].team[target])
             
-            print("\(game.players[player].team[characterChoice].name) attack \(game.players[1].team[target].name) who take -\(game.players[player].team[characterChoice].weapon.damage) on their HP.\n He have now \(game.players[1].team[target].healthPoints) HP")
+            print("\(game.players[player].team[characterChoice].name) attack \(game.players[1].team[target].name).\nHe have now \(game.players[1].team[target].healthPoints) HP.")
         }
         else {
             Character.heal(who: game.players[player].team[characterChoice], target: game.players[player].team[target])
             
-            print("\(game.players[player].team[characterChoice].name) heal \(game.players[player].team[target].name) who heal +\(game.players[player].team[characterChoice].weapon.healing) on their HP.\n He have now \(game.players[player].team[target].healthPoints) HP")
+            print("\(game.players[player].team[characterChoice].name) heal \(game.players[player].team[target].name).\nHe have now \(game.players[player].team[target].healthPoints) HP.")
             
         }
         
