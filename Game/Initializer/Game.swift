@@ -67,40 +67,43 @@ class Game {
             return false
         }
     }
-        
-        func startBattle() {
-            var turn = whoStart()
-            while players[0].isDead == false, players[1].isDead == false {
-                
-                if turn == true {
-                    playerTurn(attacker: 0, defender: 1)
-                    turn = false
-                }
-                else {
-                    playerTurn(attacker: 1, defender: 0)
-                    turn = true
-                }
+    
+    func startBattle() {
+        var turn = whoStart()
+        while players[0].isDead == false, players[1].isDead == false {
+            
+            if turn == true {
+                playerTurn(attacker: 0, defender: 1)
+                turn = false
+            }
+            else {
+                playerTurn(attacker: 1, defender: 0)
+                turn = true
             }
         }
-        
-        
-        /*    //MARK: - Check dead character
-         func checkDead() -> Bool {
-         for player in 0 ..< Game.numberOfPlayers {
-         let check = players[player].isDead
-         if check == true {
-         return true
-         }
-         else {
-         return false
-         }
-         }
-         } */
-        
-        //MARK: - Statistics
-        /// Display the statistics of the fight after end battle.
-        func showStatistics() {
-            
+    }
+    
+    //MARK: - Statistics
+    /// Display the statistics of the fight after end battle.
+    func showStatistics() {
+        let winner: Player
+        let loser: Player
+        if players[0].isDead {
+            winner = players[1]
+            loser = players[0]
+        }
+        else {
+            winner = players[0]
+            loser = players[1]
+        }
+        print("We have a winner !\n Congrats to \(winner.name), and his team :")
+        for character in 0 ..< Player.numberOfCharacters {
+            print("     - \(winner.team[character].name)")
+        }
+        print("\nAgainst \(loser.name), and his team :")
+        for character in 0 ..< Player.numberOfCharacters {
+            print("     - \(loser.team[character].name)")
         }
     }
+}
 

@@ -29,4 +29,8 @@ P3_OPENCLASSROOMS
     - Tour par tour intégré, avec fin du jeu intégré (all characters of an player is dead)
     - /!\ Manque à ajouter fonction pour bloquer l'usage des characters morts 
     - Tour de soin à ajouter (for now u can only attack)
-    
+
+05_03_2022 :
+    - Randomisation fonctionnelle du joueur qui First Turn
+    - Update, manque tour de soin pour finir la partie "BATAILLE"
+    - Statistique mise en place avec display du Winner.

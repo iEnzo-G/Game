@@ -97,6 +97,10 @@ class Player {
                     characterIndex = typed
                 }
             }
+            if characterIndex > 0, characterIndex < 4, team[characterIndex - 1].healthPoints < 0 {
+                print("\(team[characterIndex - 1].name) is dead, choose another character !")
+                characterIndex = 0
+            }
         }
         let selectedCharacter = team[characterIndex - 1]
         return selectedCharacter
