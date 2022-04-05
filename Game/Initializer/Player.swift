@@ -15,7 +15,11 @@ class Player {
     ///    Help program to know where we are in the game (if it's finish, remaining character, etc..)
     var team: [Character] = []
     static var characterNames: [String] = []
-    static let numberOfCharacters = 3
+    static let numberOfCharacters = 2
+    var isDead: Bool {
+        let characterIsAlive = team.filter { $0.healthPoints > 0 }
+        return characterIsAlive.isEmpty
+    }
     
     init(name: String){
         self.name = name
@@ -79,5 +83,24 @@ class Player {
         }
         return characterClass
     }
-}
+    
+    func description() {
+        for (index, character) in team.enumerated() {
+            print("\(index + 1). \(character.name) HP: \(character.healthPoints) DMG: \(character.weapon.damage)")
+        }
+    }
+    func chooseCharacter() -> Character {
+        var characterIndex: Int = 0
+        while characterIndex != 1, characterIndex != 2, characterIndex != 3 {
+            if let input = readLine() {
+                if let typed = Int(input){
+                    characterIndex = typed
+                }
+            }
+        }
+        let selectedCharacter = team[characterIndex - 1]
+        return selectedCharacter
+    }
+    
 
+}

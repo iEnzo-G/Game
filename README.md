@@ -23,3 +23,10 @@ P3_OPENCLASSROOMS
 01_03_2022 :
     - Username unique: OK
     - Partie combat en cours, petit probleme de duplication de fonctionnement, trouver de quoi la factoriser et "break" cette loop infernal !
+    
+05_03_2022:
+    - MAJ session de mentoriat
+    - Tour par tour intégré, avec fin du jeu intégré (all characters of an player is dead)
+    - /!\ Manque à ajouter fonction pour bloquer l'usage des characters morts 
+    - Tour de soin à ajouter (for now u can only attack)
+    
