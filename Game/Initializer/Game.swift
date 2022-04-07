@@ -60,7 +60,7 @@ class Game {
     /// To randomise the first player who start the battle
     func whoStart() -> Bool {
         let first = Int.random(in: 0 ..< Game.numberOfPlayers)
-        print("\(players[first].name) engage the battle.")
+        print("\n\(players[first].name) engage the battle.")
         if first == 0 {
             return true
         }
@@ -111,7 +111,12 @@ class Game {
     }
     
     func summaryTeams() {
-        print("-- RECAP EQUIPES AVANT COMBAT --")
+        for player in 0 ..< Game.numberOfPlayers {
+            print("\n\(players[player].name) join the fight with his team:")
+        for character in 0 ..< Player.numberOfCharacters {
+            print("     \(character + 1). \(players[player].team[character].name) HP: \(players[player].team[character].healthPoints) DMG: \(players[player].team[character].weapon.damage)")
+        }
+        }
     }
 }
 
