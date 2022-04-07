@@ -8,7 +8,7 @@
 import Foundation
 
 class Game {
-    
+    var numberOfTurn = 0
     static let numberOfPlayers = 2
     static var playersNames: [String] = []
     var players: [Player] = []
@@ -17,8 +17,8 @@ class Game {
     ///  Launch the game
     func startGame(){
         createPlayers()
+        summaryTeams()
         startBattle()
-        //FUNCTION DISPLAY WINNER
         showStatistics()
     }
     
@@ -57,6 +57,7 @@ class Game {
     
     
     //MARK: - Who start the battle
+    /// To randomise the first player who start the battle
     func whoStart() -> Bool {
         let first = Int.random(in: 0 ..< Game.numberOfPlayers)
         print("\(players[first].name) engage the battle.")
@@ -73,10 +74,12 @@ class Game {
         while players[0].isDead == false, players[1].isDead == false {
             
             if turn == true {
+                numberOfTurn += 1
                 playerTurn(attacker: 0, defender: 1)
                 turn = false
             }
             else {
+                numberOfTurn += 1
                 playerTurn(attacker: 1, defender: 0)
                 turn = true
             }
@@ -104,6 +107,11 @@ class Game {
         for character in 0 ..< Player.numberOfCharacters {
             print("     - \(loser.team[character].name)")
         }
+            print("\nThe fight is over with a total of \(numberOfTurn) rounds elapsed.")
+    }
+    
+    func summaryTeams() {
+        print("-- RECAP EQUIPES AVANT COMBAT --")
     }
 }
 
