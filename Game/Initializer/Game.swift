@@ -8,7 +8,7 @@
 import Foundation
 
 class Game {
-    var numberOfTurn = 0
+    private var numberOfTurn = 0
     static let numberOfPlayers = 2
     static var playersNames: [String] = []
     var players: [Player] = []
@@ -18,14 +18,14 @@ class Game {
     func startGame(){
         createPlayers()
         summaryTeams()
-        startBattle()
-        showStatistics()
+        whoPlayThisRound()
+        resultFight()
     }
     
     // MARK: - Create news players
-    func createPlayers() {
-        for i in 0 ..< Game.numberOfPlayers {
-            print("Player \(i + 1), choose your username !")
+    private func createPlayers() {
+        for index in 0 ..< Game.numberOfPlayers {
+            print("Player \(index + 1), choose your username !")
             var name = ""
             while name == "" {
                 if let input = readLine() {
@@ -44,79 +44,51 @@ class Game {
     
     //MARK: - Battle phase
     /// Function to initialize the battle
-    func playerTurn(attacker: Int,defender: Int){
-        print("\(players[attacker].name), who character must play this turn ?")
-        players[attacker].description()
-        let attacker = players[attacker].chooseCharacter()
-        print("Who do you want to attack?")
-        players[defender].description()
-        let defender = players[defender].chooseCharacter()
-        attacker.attack(target: defender)
-        print("\(attacker.name) attack \(defender.name).\n\(defender.name) have now \(defender.healthPoints) HP.\n")
+    private func playerRound(playerIndex: Int, defenderIndex: Int) {
+        print("\(players[playerIndex].name), who character must play this turn ?")
+        players[playerIndex].description()
+        let chosenCharacter = players[playerIndex].chooseCharacter()
+        chosenCharacter.actionCharacter(player: players[playerIndex], defender: players[defenderIndex])
     }
-    
     
     //MARK: - Who start the battle
     /// To randomise the first player who start the battle
-    func whoStart() -> Bool {
+    private func isPlayerOneStarted() -> Bool {
         let first = Int.random(in: 0 ..< Game.numberOfPlayers)
         print("\n\(players[first].name) engage the battle.")
-        if first == 0 {
-            return true
-        }
-        else {
-            return false
-        }
+        return first == 0 ? true : false
     }
     
-    func startBattle() {
-        var turn = whoStart()
+    //    MARK: - Round by Round
+    private func whoPlayThisRound() {
+        var isPlayerOneRound = isPlayerOneStarted()
         while players[0].isDead == false, players[1].isDead == false {
-            
-            if turn == true {
-                numberOfTurn += 1
-                playerTurn(attacker: 0, defender: 1)
-                turn = false
-            }
-            else {
-                numberOfTurn += 1
-                playerTurn(attacker: 1, defender: 0)
-                turn = true
-            }
+            isPlayerOneRound ? playerRound(playerIndex: 0, defenderIndex: 1) : playerRound(playerIndex: 1, defenderIndex: 0)
+            isPlayerOneRound.toggle()
+            numberOfTurn += 1
         }
     }
     
     //MARK: - Statistics
+    private func resultFight() {
+        players[0].isDead ? showStatistics(winner: players[1], loser: players[0]) : showStatistics(winner: players[0], loser: players[1])
+    }
     /// Display the statistics of the fight after end battle.
-    func showStatistics() {
-        let winner: Player
-        let loser: Player
-        if players[0].isDead {
-            winner = players[1]
-            loser = players[0]
-        }
-        else {
-            winner = players[0]
-            loser = players[1]
-        }
-        print("We have a winner !\n Congrats to \(winner.name), and his team :")
-        for character in 0 ..< Player.numberOfCharacters {
-            print("     - \(winner.team[character].name)")
-        }
+    private func showStatistics(winner: Player, loser: Player) {
+        print("\nWe have a winner 🏆 !\nCongrats to \(winner.name), and his team :")
+        winner.description()
         print("\nAgainst \(loser.name), and his team :")
-        for character in 0 ..< Player.numberOfCharacters {
-            print("     - \(loser.team[character].name)")
-        }
-            print("\nThe fight is over with a total of \(numberOfTurn) rounds elapsed.")
+        loser.description()
+        print("\nThe fight is over with a total of \(numberOfTurn) rounds elapsed.")
     }
     
-    func summaryTeams() {
+    //MARK: - Summary before fight
+    private func summaryTeams() {
         for player in 0 ..< Game.numberOfPlayers {
             print("\n\(players[player].name) join the fight with his team:")
-        for character in 0 ..< Player.numberOfCharacters {
-            print("     \(character + 1). \(players[player].team[character].name) HP: \(players[player].team[character].healthPoints) DMG: \(players[player].team[character].weapon.damage)")
-        }
+            players[player].description()
         }
     }
+
 }
 

@@ -11,10 +11,6 @@ import Foundation
 class Mage: Character{
     init(name: String){
         super.init(name: name, healthPoints: 50, weaponType: .staff)
-        
-    }
-    func actionMage(){
-        
     }
 }
 
@@ -22,19 +18,12 @@ class Mage: Character{
 class Warrior: Character {
     init(name: String){
         super.init(name: name, healthPoints: 100, weaponType: .sword)
-        
-    }
-    func actionWarrior() {
-        
     }
 }
 
 // MARK: - Assassin
 class Assasin: Character {
     init(name: String){
-        super.init(name: name, healthPoints: 70,weaponType: .dagger)
-    }
-    func actionAssasin() {
-        
+        super.init(name: name, healthPoints: 70, weaponType: .dagger)
     }
 }

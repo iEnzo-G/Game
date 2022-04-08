@@ -34,3 +34,9 @@ P3_OPENCLASSROOMS
     - Randomisation fonctionnelle du joueur qui First Turn
     - Update, manque tour de soin pour finir la partie "BATAILLE"
     - Statistique mise en place avec display du Winner.
+
+08_03_2022 :
+    - Prototype presque fini manque :
+        - En cas de ❤️‍🩹 non disponible, redonner le choix au personnage ⚔️ ou ❤️‍🩹
+        - Création constante pour les strings trop présents dans les fonctions (épuré le contenu)
+        - Finir facto des fonctions nécessaires pour un épuration TOTALE

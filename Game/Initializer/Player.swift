@@ -32,9 +32,9 @@ class Player {
         for _ in 0 ..< Player.numberOfCharacters {
             print("""
                     Choose your class :
-                    1. Mage
-                    2. Assassin
-                    3. Warrior
+                    1. Mage 🧙‍♂️
+                    2. Assassin 🥷
+                    3. Warrior 🧝‍♂️
                 """)
             switch getClassType() {
             case 1:
@@ -84,11 +84,24 @@ class Player {
         return characterClass
     }
     
-    func description() {
+    //MARK: - Team Description
+    func description() { // AVEC LA CONSTANTE STRIN -> FACTO LA FUNCTION
         for (index, character) in team.enumerated() {
-            print("\(index + 1). \(character.name) HP: \(character.healthPoints) DMG: \(character.weapon.damage)")
+            if character.healthPoints <= 0 {
+                print("     \(index + 1). \(character.name) is ☠️")
+            }
+            else {
+                if character.weapon.healing > 0 {
+                    print("     \(index + 1). \(character.name)         ❤️: \(character.healthPoints) 🗡: \(character.weapon.damage) ❤️‍🩹: \(character.weapon.healing)")
+                }
+                else {
+                    print("     \(index + 1). \(character.name)         ❤️: \(character.healthPoints) 🗡: \(character.weapon.damage)")
+                }
+            }
         }
     }
+    
+    //MARK: - Choose Character
     func chooseCharacter() -> Character {
         var characterIndex: Int = 0
         while characterIndex != 1, characterIndex != 2, characterIndex != 3 {
@@ -97,8 +110,8 @@ class Player {
                     characterIndex = typed
                 }
             }
-            if characterIndex > 0, characterIndex < 4, team[characterIndex - 1].healthPoints < 0 {
-                print("\(team[characterIndex - 1].name) is dead, choose another character !")
+            if characterIndex > 0, characterIndex < 4, team[characterIndex - 1].healthPoints <= 0 {
+                print("\(team[characterIndex - 1].name) is ☠️, choose another character !")
                 characterIndex = 0
             }
         }
@@ -106,5 +119,4 @@ class Player {
         return selectedCharacter
     }
     
-
 }
