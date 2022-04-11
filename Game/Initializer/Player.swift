@@ -85,7 +85,7 @@ class Player {
     }
     
     //MARK: - Team Description
-    func description() { // AVEC LA CONSTANTE STRIN -> FACTO LA FUNCTION
+    func description() { // AVEC LA CONSTANTE STRING -> FACTO LA FUNCTION
         for (index, character) in team.enumerated() {
             if character.healthPoints <= 0 {
                 print("     \(index + 1). \(character.name) is ☠️")
