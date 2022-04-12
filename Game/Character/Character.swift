@@ -71,22 +71,16 @@ class Character {
     }
     
     /// Function to check the function isCharacterHeal() and done according to the Boolean result.
-    func actionCharacter(player: Player, defender: Player) {
-        weapon.healing > 0 ? (isCharacterHeal() == true ? healCharacter(self: player): attackCharacter(defender: defender)) : attackCharacter(defender: defender)
+    func healOrAttack(player: Player, opponent: Player) {
+        weapon.healing > 0 ? (isCharacterHeal() == true ? characterAction(player: player, action: "❤️‍🩹"): characterAction(player: opponent, action: "⚔️")) : characterAction(player: opponent, action: "⚔️")
     }
     
-    private func attackCharacter(defender: Player) {
-        print(K.Character.whatDo(action: "⚔️"))
-        defender.description()
-        let targetCharacter = defender.chooseCharacter()
-        attack(target: targetCharacter)
-    }
-    
-    private func healCharacter(self: Player) {
-        print(K.Character.whatDo(action: "❤️‍🩹"))
-        self.description()
-        let targetCharacter = self.chooseCharacter()
-        targetCharacter.healthPoints == maxHealthPoints ? print(K.Character.cantHeal) : heal(target: targetCharacter)
+    private func characterAction(player: Player, action: String) {
+        print(K.Character.whatDo(action: action))
+        player.description()
+        let targetCharacter = player.chooseCharacter()
+        if action == "⚔️" { attack(target: targetCharacter) }
+        if action == "❤️‍🩹" { targetCharacter.healthPoints == maxHealthPoints ? print(K.Character.cantHeal) : heal(target: targetCharacter) }
     }
     
     // MARK: - Resume Action

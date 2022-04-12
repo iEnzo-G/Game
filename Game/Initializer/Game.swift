@@ -51,11 +51,11 @@ class Game {
     // MARK: - Battle phase
     
     /// Function to initialize the battle.
-    private func playerRound(playerIndex: Int, defenderIndex: Int) {
+    private func playerRound(playerIndex: Int, opponentIndex: Int) {
         print(K.Game.whoCharacterPlay(playerName: players[playerIndex].name))
         players[playerIndex].description()
         let chosenCharacter = players[playerIndex].chooseCharacter()
-        chosenCharacter.actionCharacter(player: players[playerIndex], defender: players[defenderIndex])
+        chosenCharacter.healOrAttack(player: players[playerIndex], opponent: players[opponentIndex])
     }
     
     // MARK: - Who start the battle
@@ -73,7 +73,7 @@ class Game {
     private func whoPlayThisRound() {
         var isPlayerOneRound = isPlayerOneStarted()
         while players[0].isDead == false, players[1].isDead == false {
-            isPlayerOneRound ? playerRound(playerIndex: 0, defenderIndex: 1) : playerRound(playerIndex: 1, defenderIndex: 0)
+            isPlayerOneRound ? playerRound(playerIndex: 0, opponentIndex: 1) : playerRound(playerIndex: 1, opponentIndex: 0)
             isPlayerOneRound.toggle()
             numberOfTurn += 1
         }
