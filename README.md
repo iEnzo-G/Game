@@ -40,3 +40,6 @@ P3_OPENCLASSROOMS
         - En cas de ❤️‍🩹 non disponible, redonner le choix au personnage ⚔️ ou ❤️‍🩹
         - Création constante pour les strings trop présents dans les fonctions (épuré le contenu)
         - Finir facto des fonctions nécessaires pour un épuration TOTALE
+
+12_03_2022 :
+    - Derniere vérification, et ajout d'une fichier "Constante" pour regrouper les Strings du proto.

@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - Mage
+
 class Mage: Character{
     init(name: String){
         super.init(name: name, healthPoints: 50, weaponType: .staff)
@@ -15,6 +16,7 @@ class Mage: Character{
 }
 
 // MARK: - Warrior
+
 class Warrior: Character {
     init(name: String){
         super.init(name: name, healthPoints: 100, weaponType: .sword)
@@ -22,8 +24,9 @@ class Warrior: Character {
 }
 
 // MARK: - Assassin
+
 class Assasin: Character {
     init(name: String){
-        super.init(name: name, healthPoints: 70, weaponType: .dagger)
+        super.init(name: name, healthPoints: 60, weaponType: .dagger)
     }
 }

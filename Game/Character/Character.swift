@@ -9,39 +9,41 @@ import Foundation
 
 class Character {
     
-    //     MARK: - Properties
+    // MARK: - Properties
+    
     let name: String
     var healthPoints: Int
     let weapon: Weapon
-    let maxHealthPoints: Int
+    private let maxHealthPoints: Int
     
-    //     MARK: - Initializer
-    ///     Main init with name, their HP, action possible and their weapon
-    ///     who define "HP transformer", if character heal(+) or attack(-)
+    // MARK: - Initializer
+    
     init(name: String, healthPoints: Int, weaponType: WeaponType){
         self.name = name
         self.healthPoints = healthPoints
         self.maxHealthPoints = healthPoints
         switch weaponType {
         case .dagger:
-            weapon = Weapon(damage: 35, healing: 0)
+            weapon = Weapon(damage: 50, healing: 0)
         case .sword:
-            weapon = Weapon(damage: 25, healing: 0)
+            weapon = Weapon(damage: 30, healing: 0)
         case .staff:
-            weapon = Weapon(damage: 10, healing: 25)
+            weapon = Weapon(damage: 15, healing: 20)
         }
     }
     
-    //     MARK: - Action
+    // MARK: - Action
+    
     private func attack(target: Character) {
         target.healthPoints -= weapon.damage
         resumeAction(target: target, action: "⚔️")
     }
+    
     private func heal(target: Character) {
         target.healthPoints += weapon.healing
-            if target.healthPoints > target.maxHealthPoints {
+        if target.healthPoints > target.maxHealthPoints {
             target.healthPoints = target.maxHealthPoints
-            cantHealMore()
+            print(K.Character.cantHeal)
         }
         resumeAction(target: target, action: "❤️‍🩹")
     }
@@ -50,6 +52,7 @@ class Character {
         case dagger, sword, staff
     }
     
+    /// If the character chosen can heal, the function display 2 action : Heal (❤️‍🩹) or Attack (⚔️)
     private func isCharacterHeal() -> Bool {
         let action = ["🗡","❤️‍🩹"]
         print("Do you want ❤️‍🩹 or 🗡 ?")
@@ -67,41 +70,34 @@ class Character {
         return actionIndex == 1 ? false : true
     }
     
+    /// Function to check the function isCharacterHeal() and done according to the Boolean result.
     func actionCharacter(player: Player, defender: Player) {
         weapon.healing > 0 ? (isCharacterHeal() == true ? healCharacter(self: player): attackCharacter(defender: defender)) : attackCharacter(defender: defender)
-   }
-        
-        // DEUX FONCTIONS COMBINÉES EN UNE SEULE POSSIBLE (À FACTO)
+    }
+    
     private func attackCharacter(defender: Player) {
-        whatDo(action: "⚔️")
+        print(K.Character.whatDo(action: "⚔️"))
         defender.description()
         let targetCharacter = defender.chooseCharacter()
         attack(target: targetCharacter)
     }
     
     private func healCharacter(self: Player) {
-        whatDo(action: "❤️‍🩹")
+        print(K.Character.whatDo(action: "❤️‍🩹"))
         self.description()
         let targetCharacter = self.chooseCharacter()
-        if targetCharacter.healthPoints == maxHealthPoints {
-            cantHealMore()
-            /* RETOUR A LA FONCTION actionCharacter */
+        targetCharacter.healthPoints == maxHealthPoints ? print(K.Character.cantHeal) : heal(target: targetCharacter)
+    }
+    
+    // MARK: - Resume Action
+    
+    /// Display the action, with different print if the target character die.
+    private func resumeAction(target: Character, action: String) {
+        if target.healthPoints <= 0 {
+            print(K.Character.targetIsDead(character: name, target: target.name, action: action))
         }
-        else { heal(target: targetCharacter) }
-    }
-        
-        
-    
-    //MARK: - STRING
-    private func resumeAction(target: Character, action: String) { // Fonction qui sera dans la partie constante avec tous les Strings.
-        target.healthPoints <= 0 ? print("\(name) \(action) \(target.name) and she/he is ☠️") : print("\(name) \(action) \(target.name).\n\(target.name) have now \(target.healthPoints) ❤️.\n")
-    }
-    
-    private func cantHealMore() { // Fonction qui sera dans la partie constante avec tous les Strings.
-        print("Can't ❤️‍🩹 more than its initial ❤️ !")
-    }
-    
-    private func whatDo(action: String) {
-        print("Who do you want to \(action)?")
+        else {
+            print(K.Character.targetIsAlive(character: name, target: target.name, action: action, targetHP: target.healthPoints))
+        }
     }
 }

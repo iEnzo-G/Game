@@ -8,13 +8,17 @@
 import Foundation
 
 class Game {
-    private var numberOfTurn = 0
-    static let numberOfPlayers = 2
-    static var playersNames: [String] = []
-    var players: [Player] = []
     
-    //MARK: - Start Game
-    ///  Launch the game
+    // MARK: - Properties
+    
+    private var numberOfTurn = 0
+    private static let numberOfPlayers = 2
+    private static var playersNames: [String] = []
+    private var players: [Player] = []
+    
+    // MARK: - Start Game
+    
+    ///  Launch the game.
     func startGame(){
         createPlayers()
         summaryTeams()
@@ -23,43 +27,49 @@ class Game {
     }
     
     // MARK: - Create news players
+    
+    /// Function to create players and them team.
     private func createPlayers() {
         for index in 0 ..< Game.numberOfPlayers {
-            print("Player \(index + 1), choose your username !")
+            print(K.Game.playerUsername(index: index))
             var name = ""
             while name == "" {
                 if let input = readLine() {
                     name = input
                 }
-                if Game.playersNames.contains(name) {             // Safe condition to have unique name
-                    print("This username is already taken, choose another please !")
+                if Game.playersNames.contains(name) {
+                    print(K.Game.nameUnique)
                     name = ""
                 }
             }
             Game.playersNames.append(name)
-            print("\(name), choose your characters !")
+            print(K.Game.chooseCharacters(playerName: name))
             players.append(Player(name: name))
         }
     }
     
-    //MARK: - Battle phase
-    /// Function to initialize the battle
+    // MARK: - Battle phase
+    
+    /// Function to initialize the battle.
     private func playerRound(playerIndex: Int, defenderIndex: Int) {
-        print("\(players[playerIndex].name), who character must play this turn ?")
+        print(K.Game.whoCharacterPlay(playerName: players[playerIndex].name))
         players[playerIndex].description()
         let chosenCharacter = players[playerIndex].chooseCharacter()
         chosenCharacter.actionCharacter(player: players[playerIndex], defender: players[defenderIndex])
     }
     
-    //MARK: - Who start the battle
-    /// To randomise the first player who start the battle
+    // MARK: - Who start the battle
+    
+    /// To randomise the first player who start the battle.
     private func isPlayerOneStarted() -> Bool {
         let first = Int.random(in: 0 ..< Game.numberOfPlayers)
-        print("\n\(players[first].name) engage the battle.")
+        print(K.Game.whoStart(playerName: players[first].name))
         return first == 0 ? true : false
     }
     
-    //    MARK: - Round by Round
+    // MARK: - Round by Round
+    
+    /// Randomizer function to know which player engage the battle.
     private func whoPlayThisRound() {
         var isPlayerOneRound = isPlayerOneStarted()
         while players[0].isDead == false, players[1].isDead == false {
@@ -69,23 +79,28 @@ class Game {
         }
     }
     
-    //MARK: - Statistics
+    // MARK: - Statistics
+    
+    /// To defined the winner and the loser to display them.
     private func resultFight() {
         players[0].isDead ? showStatistics(winner: players[1], loser: players[0]) : showStatistics(winner: players[0], loser: players[1])
     }
+    
     /// Display the statistics of the fight after end battle.
     private func showStatistics(winner: Player, loser: Player) {
-        print("\nWe have a winner 🏆 !\nCongrats to \(winner.name), and his team :")
+        print(K.Game.Statistics.displayWinner(name: winner.name))
         winner.description()
-        print("\nAgainst \(loser.name), and his team :")
+        print(K.Game.Statistics.displayLoser(name: loser.name))
         loser.description()
-        print("\nThe fight is over with a total of \(numberOfTurn) rounds elapsed.")
+        print(K.Game.Statistics.roundsElapsed(numbers: numberOfTurn))
     }
     
-    //MARK: - Summary before fight
+    // MARK: - Summary before fight
+    
+    ///  Summary of players teams with characters shown.
     private func summaryTeams() {
         for player in 0 ..< Game.numberOfPlayers {
-            print("\n\(players[player].name) join the fight with his team:")
+            print(K.Game.summaryTeams(playerName: players[player].name))
             players[player].description()
         }
     }

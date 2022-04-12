@@ -12,6 +12,7 @@
 		54455CE027E0D7B1002DED05 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54455CDF27E0D7B1002DED05 /* Game.swift */; };
 		54455CE227E0FB41002DED05 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54455CE127E0FB41002DED05 /* Class.swift */; };
 		546D255427DF99C10012DB46 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546D255327DF99C10012DB46 /* main.swift */; };
+		549DBD062805BEBB005C75CC /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549DBD052805BEBB005C75CC /* K.swift */; };
 		54EC0CAA27E36FBC009C26A4 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC0CA927E36FBC009C26A4 /* Weapon.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		54455CE127E0FB41002DED05 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		546D255027DF99C10012DB46 /* Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Game; sourceTree = BUILT_PRODUCTS_DIR; };
 		546D255327DF99C10012DB46 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		549DBD052805BEBB005C75CC /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		54EC0CA927E36FBC009C26A4 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 				54940C5C27E8A5E100C89B8C /* Initializer */,
 				54940C5B27E8A5C900C89B8C /* Character */,
 				546D255327DF99C10012DB46 /* main.swift */,
+				549DBD052805BEBB005C75CC /* K.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -121,7 +124,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					546D254F27DF99C10012DB46 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				546D255427DF99C10012DB46 /* main.swift in Sources */,
+				549DBD062805BEBB005C75CC /* K.swift in Sources */,
 				54455CDE27E0D797002DED05 /* Player.swift in Sources */,
 				54455CDC27E0D758002DED05 /* Character.swift in Sources */,
 				54455CE227E0FB41002DED05 /* Class.swift in Sources */,
@@ -281,6 +285,7 @@
 		546D255827DF99C10012DB46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4YN9289X4K;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -292,6 +297,7 @@
 		546D255927DF99C10012DB46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4YN9289X4K;
 				ENABLE_HARDENED_RUNTIME = YES;
